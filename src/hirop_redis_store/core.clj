@@ -35,6 +35,7 @@
 
   (update-context [_ context-id f]
     (let [context (wcar (car/get context-id))
+          ;; what if context-id is not there?
           context (f context)]
       (if expiration
         (wcar (car/setex context-id expiration context))
