@@ -23,7 +23,7 @@
         (wcar (car/set key context)))
       context-id))
   
-  (assoc-context [_ context context-id]
+  (assoc-context [_ context-id context]
     (if expiration
       (wcar (car/setex context-id expiration context))
       (wcar (car/set key context)))
