@@ -62,6 +62,6 @@
   [connection-pool connection-spec
    & {:keys [key-prefix expiration-secs]
       :or   {key-prefix       "hirop:store"
-             expiration-secs  (str (* 60 60))}}]
+             expiration-secs  (* 60 60)}}]
   (RedisStore. (atom {:pool connection-pool :spec connection-spec})
                key-prefix (str expiration-secs)))
