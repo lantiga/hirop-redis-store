@@ -33,8 +33,6 @@
     (wcar (car/del context-id))
     nil)
 
-  ;; For a Redis store (i.e. when not in memory) this could execute in a transaction and update
-  ;; only those fields of a hash for which there is a change
   (update-context [_ context-id f]
     (let [context (wcar (car/get context-id))
           context (f context)]
