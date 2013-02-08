@@ -17,7 +17,7 @@
     (wcar (car/get context-id)))
   
   (put-context [_ context]
-    (let [context-id (str prefix ":" (uuid))]
+    (let [context-id (str prefix (uuid))]
       (if expiration
         (wcar (car/setex context-id expiration context))
         (wcar (car/set key context)))
@@ -62,7 +62,7 @@
   "Return empty Redis-based context store. Inspired by Carmine's ring session store."
   [connection-pool connection-spec
    & {:keys [key-prefix expiration-secs]
-      :or   {key-prefix       "hirop:store"
+      :or   {key-prefix       "hs-" ;; "hirop:store:"
              expiration-secs  (* 60 60)}}]
   (RedisStore. (atom {:pool connection-pool :spec connection-spec})
                key-prefix (str expiration-secs)))
