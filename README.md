@@ -1,6 +1,6 @@
 # hirop-redis-store
 
-Redis context store for [hirop](https://github.com/orobix/hirop).
+[Redis](http://redis.io/) context store for [hirop](https://github.com/orobix/hirop) based on [Carmine](https://github.com/ptaoussanis/carmine).
 
 ## Usage
 
