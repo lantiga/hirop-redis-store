@@ -9,11 +9,6 @@ Leiningen:
 [hirop-redis-store "0.1.0-SNAPSHOT"]
 ```
 
-Test:
-```clojure
-lein test
-```
-
 ## Documentation
 
 Please refer to the [hirop wiki](https://github.com/orobix/hirop/wiki).
