@@ -34,6 +34,7 @@
     nil)
 
   (update-context [_ context-id f]
+    ;; TODO: watch context-id key while executing f
     (let [context (wcar (car/get context-id))
           ;; what if context-id is not there?
           context (f context)]

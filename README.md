@@ -13,6 +13,10 @@ Leiningen:
 
 Please refer to the [hirop wiki](https://github.com/orobix/hirop/wiki).
 
+## Todo
+
+* Use watch/multi/exec with retry in update-context
+
 ## License
 
 Copyright © 2013 Orobix Srl
