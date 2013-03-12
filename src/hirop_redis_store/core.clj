@@ -33,8 +33,19 @@
     (wcar (car/del context-id))
     nil)
 
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; TODO: use Redis watch/multi/exec
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  (compare-and-set-context [this context-id old-context new-context]
+    (if (= old-context (get-context this context-id))
+      (do (assoc-context this context-id new-context)
+        true) 
+      false))
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; TODO: use Redis watch/multi/exec
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   (update-context [_ context-id f]
-    ;; TODO: watch context-id key while executing f
     (let [context (wcar (car/get context-id))
           ;; what if context-id is not there?
           context (f context)]
